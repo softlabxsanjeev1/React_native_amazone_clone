@@ -4,8 +4,8 @@ import AmazonPay from '../assets/amazon-pay.png';
 import SendMoney from '../assets/send-money.jpg';
 import PayBills from '../assets/pay-bills.jpeg';
 import ScanQR from '../assets/scan-qr.jpeg';
-import Service1 from '../assets/service1.jpeg'
 import {RecentSearchData} from '../data/RecentSearchData'
+import { TouchableOpacity } from 'react-native';
 
 
 const Services = () => {
@@ -18,30 +18,40 @@ const Services = () => {
             <View style={styles.servicecontainer}>
                 <View style={styles.row}>
                     <View style={styles.innercontainer}>
-                        <Image source={AmazonPay} style={styles.imgstyle} />
-                        <Text style={styles.title}>Pay</Text>
+                    <TouchableOpacity>
+                            <Image source={AmazonPay} style={styles.imgstyle} />
+                            <Text style={styles.title}>Pay</Text>
+                    </TouchableOpacity>                       
                     </View>
                     <View style={styles.innercontainer}>
+                        <TouchableOpacity>
                         <Image source={SendMoney} style={styles.imgstyle} />
                         <Text style={styles.title}>Send Money</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.row}>
                     <View style={styles.innercontainer}>
+                        <TouchableOpacity>
                         <Image source={PayBills} style={styles.imgstyle} />
                         <Text style={styles.title}>PayBills</Text>
+                        </TouchableOpacity>
                     </View>
                     <View style={styles.innercontainer}>
+                        <TouchableOpacity>
                         <Image source={ScanQR} style={styles.imgstyle} />
                         <Text style={styles.title}>Scan QR</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
             {/* recent search */}
             {RecentSearchData.map((item,i) =>(
                 <View style={styles.outercontainer} key={i}>
-                    <Text style={styles.recentsearch}>{item.title}</Text>
-                    <Image source={item.image} style={styles.serviceimage} />
+                <TouchableOpacity>
+                        <Text style={styles.recentsearch}>{item.title}</Text>
+                        <Image source={item.image} style={styles.serviceimage} />
+                </TouchableOpacity>                   
                 </View>
             ))
             }            
